@@ -7,7 +7,7 @@ import "./navbar.css";
 const Navbar = () => {
     const [categoriesEn, setCategoriesEn] = React.useState([]);
     const [categoriesUk, setCategoriesUk] = React.useState([]);
-    const lang = useSelector(state => state.lang.lang)
+    const lang = useSelector(state => state.lang)
 
     React.useEffect(() => {
         async function getCategories() {

@@ -17,7 +17,7 @@ import i18n from "i18next";
 
 export default function ButtonAppBar() {
     const darkMode = useSelector((state) => state.darkMode);
-    const lang = useSelector((state) => state.lang.lang);
+    const lang = useSelector((state) => state.lang);
     const dispatch = useDispatch();
 
     React.useEffect(() => {

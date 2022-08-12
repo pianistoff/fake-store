@@ -1,18 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-    lang: "uk"
-}
-
 export const langSlice = createSlice({
     name: "lang",
-    initialState,
+    initialState: "uk",
     reducers: {
-        switchToEn: state => {
-            state.lang = "en";
+        switchToEn: () => {
+            return "en";
         },
-        switchToUk: state => {
-            state.lang = "uk";
+        switchToUk: () => {
+            return "uk";
         }
     }
 })
