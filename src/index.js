@@ -10,13 +10,11 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import darkModeReducer from "./common/darkModeSlice";
 import langReducer from "./common/langSlice";
-import categoriesReducer from "./common/categoriesSlice"
 
 const store = configureStore({
     reducer: {
         darkMode: darkModeReducer,
         lang: langReducer,
-        categories: categoriesReducer
     },
 });
 
