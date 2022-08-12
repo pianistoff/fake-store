@@ -16,3 +16,5 @@ export const langSlice = createSlice({
 export const { switchToEn, switchToUk } = langSlice.actions;
 
 export default langSlice.reducer;
+
+export const selectLang = state => state.lang;

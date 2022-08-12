@@ -15,10 +15,11 @@ import { switchToEn, switchToUk } from "../common/langSlice";
 import { useSelector, useDispatch } from "react-redux";
 import i18n from "i18next";
 import { selectDarkMode } from "../common/darkModeSlice";
+import { selectLang } from "../common/langSlice";
 
 export default function ButtonAppBar() {
     const darkMode = useSelector(selectDarkMode);
-    const lang = useSelector((state) => state.lang);
+    const lang = useSelector(selectLang);
     const dispatch = useDispatch();
 
     React.useEffect(() => {
