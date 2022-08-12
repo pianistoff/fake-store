@@ -9,10 +9,11 @@ import { useSelector } from "react-redux";
 import "./footer.css";
 import { useTranslation } from "react-i18next";
 import "../common/translation"
+import { selectDarkMode } from "../common/darkModeSlice";
 
 const Footer = () => {
     const { t } = useTranslation()
-    const darkMode = useSelector((state) => state.darkMode);
+    const darkMode = useSelector(selectDarkMode);
     return (
         <Suspense fallback="Loading...">
             <footer

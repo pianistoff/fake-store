@@ -11,9 +11,10 @@ import { useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
+import { selectDarkMode } from "./common/darkModeSlice";
 
 const App = () => {
-    const darkMode = useSelector((state) => state.darkMode);
+    const darkMode = useSelector(selectDarkMode);
     const mode = darkMode ? "dark" : "light";
     const theme = createTheme({
         palette: {
