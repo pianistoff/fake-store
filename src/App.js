@@ -13,7 +13,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 
 const App = () => {
-    const darkMode = useSelector((state) => state.darkMode.darkMode);
+    const darkMode = useSelector((state) => state.darkMode);
     const mode = darkMode ? "dark" : "light";
     const theme = createTheme({
         palette: {

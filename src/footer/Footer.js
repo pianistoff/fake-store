@@ -12,7 +12,7 @@ import "../common/translation"
 
 const Footer = () => {
     const { t } = useTranslation()
-    const darkMode = useSelector((state) => state.darkMode.darkMode);
+    const darkMode = useSelector((state) => state.darkMode);
     return (
         <Suspense fallback="Loading...">
             <footer

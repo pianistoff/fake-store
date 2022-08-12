@@ -16,7 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 import i18n from "i18next";
 
 export default function ButtonAppBar() {
-    const darkMode = useSelector((state) => state.darkMode.darkMode);
+    const darkMode = useSelector((state) => state.darkMode);
     const lang = useSelector((state) => state.lang.lang);
     const dispatch = useDispatch();
 
