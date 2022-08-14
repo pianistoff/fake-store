@@ -28,9 +28,9 @@ const App = () => {
         },
     });
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <BrowserRouter>
+        <BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
                 <Box
                     sx={{
                         display: "flex",
@@ -40,7 +40,7 @@ const App = () => {
                     }}
                 >
                     <Header />
-                    <div style={{padding: "10px"}}>
+                    <div style={{ padding: "10px" }}>
                         <Routes>
                             <Route path="/" element={<Products />} />
                             <Route path="/product/:id" element={<Product />} />
@@ -52,8 +52,8 @@ const App = () => {
                     </div>
                     <Footer />
                 </Box>
-            </BrowserRouter>
-        </ThemeProvider>
+            </ThemeProvider>
+        </BrowserRouter>
     );
 };
 
