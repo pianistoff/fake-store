@@ -17,7 +17,7 @@ import i18n from "i18next";
 import { selectDarkMode } from "../common/darkModeSlice";
 import { selectLang } from "../common/langSlice";
 
-export default function ButtonAppBar() {
+export default function Header() {
     const darkMode = useSelector(selectDarkMode);
     const lang = useSelector(selectLang);
     const dispatch = useDispatch();
