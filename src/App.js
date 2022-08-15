@@ -1,7 +1,7 @@
 import Header from './header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from './footer/Footer';
-import Content from './content/Content';
+import RoutesList from "../common/RoutesList";
 import { useSelector } from 'react-redux';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -34,7 +34,9 @@ const App = () => {
                     }}
                 >
                     <Header />
-                    <Content />
+                    <div style={{ padding: '10px' }}>
+                        <RoutesList />
+                    </div>
                     <Footer />
                 </Box>
             </ThemeProvider>
