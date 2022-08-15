@@ -10,22 +10,26 @@ import './footer.css';
 import { useTranslation } from 'react-i18next';
 import '../common/translation';
 import { selectThemeMode } from './../common/userSettingsSlice';
+import { styled } from '@mui/system';
 
 const Footer = () => {
     const { t } = useTranslation();
     const themeMode = useSelector(selectThemeMode);
+
     let backgroundColor;
     if (themeMode === 'light') {
         backgroundColor = '#802c6e';
     } else if (themeMode === 'dark') {
-        backgroundColor = '272727';
+        backgroundColor = '#272727';
     }
+
+    const FooterTag = styled('footer')({
+        backgroundColor: backgroundColor,
+    });
+
     return (
         <Suspense fallback="Loading...">
-            <footer
-                className="footer"
-                style={{ backgroundColor: backgroundColor }}
-            >
+            <FooterTag>
                 <Typography variant="body1" component="p">
                     {t('copyright')}
                 </Typography>
@@ -59,7 +63,7 @@ const Footer = () => {
                         <PinterestIcon />
                     </IconButton>
                 </div>
-            </footer>
+            </FooterTag>
         </Suspense>
     );
 };
