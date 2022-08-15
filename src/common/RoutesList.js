@@ -6,6 +6,7 @@ import Cart from '../cart/Cart';
 import Users from '../users/Users';
 import Login from '../account/Login';
 import Register from '../account/Register';
+import NotFound from '../not-found/NotFound';
 
 const RoutesList = () => {
     return (
@@ -16,6 +17,7 @@ const RoutesList = () => {
             <Route path="/users" element={<Users />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 };
