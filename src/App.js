@@ -1,7 +1,7 @@
 import Header from './header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from './footer/Footer';
-import RoutesList from "../common/RoutesList";
+import RoutesList from "./common/RoutesList";
 import { useSelector } from 'react-redux';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
