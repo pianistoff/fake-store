@@ -7,7 +7,11 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './index.css';
 import { Provider } from 'react-redux';
-import store from "./common/storeConfiguration";
+import store from './common/storeConfiguration';
 
 const root = createRoot(document.querySelector('#root'));
-root.render(<Provider store={store}><App /></Provider>);
+root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+);
