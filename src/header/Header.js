@@ -35,7 +35,7 @@ export default function Header() {
         }
     };
 
-    const changeLang = (event) => {
+    const handleLanguageChange = (event) => {
         if (event.target.value === 'uk') {
             dispatch(switchToUk());
         } else if (event.target.value === 'en') {
@@ -57,7 +57,7 @@ export default function Header() {
                     FAKE STORE
                 </Typography>
                 <Select
-                    onChange={changeLang}
+                    onChange={handleLanguageChange}
                     defaultValue="uk"
                     variant="outlined"
                     sx={{ color: 'white' }}
