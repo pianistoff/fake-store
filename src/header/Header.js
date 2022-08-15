@@ -1,21 +1,22 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import IconButton from "@mui/material/IconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Navbar from "./Navbar";
-import { switchToDark, switchToLight } from "../common/userSettingsSlice";
-import { switchToEn, switchToUk } from "../common/userSettingsSlice";
-import { useSelector, useDispatch } from "react-redux";
-import i18n from "i18next";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
+import { switchToDark, switchToLight } from '../common/userSettingsSlice';
+import { switchToEn, switchToUk } from '../common/userSettingsSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import i18n from 'i18next';
 import { selectThemeMode } from './../common/userSettingsSlice';
-import { selectLanguage } from "./../common/userSettingsSlice";
+import { selectLanguage } from './../common/userSettingsSlice';
 
 export default function Header() {
     const themeMode = useSelector(selectThemeMode);
@@ -27,26 +28,26 @@ export default function Header() {
     }, [language]);
 
     const toggleMode = () => {
-        if (themeMode === "light") {
-            dispatch(switchToDark())
-        } else if (themeMode === "dark") {
-            dispatch(switchToLight())
+        if (themeMode === 'light') {
+            dispatch(switchToDark());
+        } else if (themeMode === 'dark') {
+            dispatch(switchToLight());
         }
     };
 
     const changeLang = (event) => {
-        if (event.target.value === "uk") {
+        if (event.target.value === 'uk') {
             dispatch(switchToUk());
-        } else if (event.target.value === "en") {
+        } else if (event.target.value === 'en') {
             dispatch(switchToEn());
         }
     };
 
     let themeModeButton;
-    if (themeMode === "light") {
-        themeModeButton = <DarkModeIcon />
+    if (themeMode === 'light') {
+        themeModeButton = <DarkModeIcon />;
     } else if (themeMode === 'dark') {
-        themeModeButton = <LightModeIcon />
+        themeModeButton = <LightModeIcon />;
     }
 
     return (
@@ -59,7 +60,7 @@ export default function Header() {
                     onChange={changeLang}
                     defaultValue="uk"
                     variant="outlined"
-                    sx={{ color: "white" }}
+                    sx={{ color: 'white' }}
                 >
                     <MenuItem value="uk">UK</MenuItem>
                     <MenuItem value="en">EN</MenuItem>
@@ -72,21 +73,15 @@ export default function Header() {
                 >
                     {themeModeButton}
                 </IconButton>
-                <IconButton
-                    size="large"
-                    aria-label="cart"
-                    color="inherit"
-                    href="/cart"
-                >
-                    <ShoppingCartIcon />
+                <IconButton size="large" aria-label="cart" color="inherit">
+                    <Link to="/cart" style={{ color: 'white' }}>
+                        <ShoppingCartIcon />
+                    </Link>
                 </IconButton>
-                <IconButton
-                    size="large"
-                    aria-label="account"
-                    color="inherit"
-                    href="/login"
-                >
-                    <AccountCircleIcon />
+                <IconButton size="large" aria-label="account" color="inherit">
+                    <Link to="/login" style={{ color: 'white' }}>
+                        <AccountCircleIcon />
+                    </Link>
                 </IconButton>
             </Toolbar>
             <Navbar />
