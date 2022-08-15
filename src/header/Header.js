@@ -35,14 +35,6 @@ export default function Header() {
         }
     };
 
-    const handleLanguageChange = (event) => {
-        if (event.target.value === 'uk') {
-            dispatch(switchToUk());
-        } else if (event.target.value === 'en') {
-            dispatch(switchToEn());
-        }
-    };
-
     let themeModeButton;
     if (themeMode === 'light') {
         themeModeButton = <DarkModeIcon />;
@@ -57,13 +49,12 @@ export default function Header() {
                     FAKE STORE
                 </Typography>
                 <Select
-                    onChange={handleLanguageChange}
                     defaultValue="uk"
                     variant="outlined"
                     sx={{ color: 'white' }}
                 >
-                    <MenuItem value="uk">UK</MenuItem>
-                    <MenuItem value="en">EN</MenuItem>
+                    <MenuItem value="uk" onClick={() => dispatch(switchToUk())}>UK</MenuItem>
+                    <MenuItem value="en" onClick={() => dispatch(switchToEn())}>EN</MenuItem>
                 </Select>
                 <IconButton
                     size="large"
