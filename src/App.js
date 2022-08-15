@@ -1,21 +1,15 @@
 import Header from "./header/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Products from "./products/Products";
-import Product from "./product/Product";
-import Cart from "./cart/Cart";
-import Users from "./users/Users";
-import Login from "./account/Login";
-import Register from "./account/Register";
+import { BrowserRouter } from "react-router-dom";
 import Footer from "./footer/Footer";
+import Content from "./content/Content";
 import { useSelector } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import { selectDarkMode } from "./common/darkModeSlice";
+import { selectThemeMode } from './common/userSettingsSlice';
 
 const App = () => {
-    const darkMode = useSelector(selectDarkMode);
-    const mode = darkMode ? "dark" : "light";
+    const themeMode = useSelector(selectThemeMode);
     const theme = createTheme({
         palette: {
             primary: {
@@ -24,7 +18,7 @@ const App = () => {
             secondary: {
                 main: "#6e802c",
             },
-            mode: mode,
+            mode: themeMode,
         },
     });
     return (
@@ -40,16 +34,7 @@ const App = () => {
                     }}
                 >
                     <Header />
-                    <div style={{ padding: "10px" }}>
-                        <Routes>
-                            <Route path="/" element={<Products />} />
-                            <Route path="/product/:id" element={<Product />} />
-                            <Route path="/cart" element={<Cart />} />
-                            <Route path="/login" element={<Login />} />
-                            <Route path="/register" elements={<Register />} />
-                            <Route path="/users" element={<Users />} />
-                        </Routes>
-                    </div>
+                    <Content />
                     <Footer />
                 </Box>
             </ThemeProvider>

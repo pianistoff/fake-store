@@ -10,24 +10,28 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Navbar from "./Navbar";
-import { switchToDark, switchToLight } from "../common/darkModeSlice";
-import { switchToEn, switchToUk } from "../common/langSlice";
+import { switchToDark, switchToLight } from "../common/userSettingsSlice";
+import { switchToEn, switchToUk } from "../common/userSettingsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import i18n from "i18next";
-import { selectDarkMode } from "../common/darkModeSlice";
-import { selectLang } from "../common/langSlice";
+import { selectThemeMode } from './../common/userSettingsSlice';
+import { selectLanguage } from "./../common/userSettingsSlice";
 
 export default function Header() {
-    const darkMode = useSelector(selectDarkMode);
-    const lang = useSelector(selectLang);
+    const themeMode = useSelector(selectThemeMode);
+    const language = useSelector(selectLanguage);
     const dispatch = useDispatch();
 
     React.useEffect(() => {
-        i18n.changeLanguage(lang);
-    }, [lang]);
+        i18n.changeLanguage(language);
+    }, [language]);
 
     const toggleMode = () => {
-        darkMode ? dispatch(switchToLight()) : dispatch(switchToDark());
+        if (themeMode === "light") {
+            dispatch(switchToDark())
+        } else if (themeMode === "dark") {
+            dispatch(switchToLight())
+        }
     };
 
     const changeLang = (event) => {
@@ -37,6 +41,13 @@ export default function Header() {
             dispatch(switchToEn());
         }
     };
+
+    let themeModeButton;
+    if (themeMode === "light") {
+        themeModeButton = <DarkModeIcon />
+    } else if (themeMode === 'dark') {
+        themeModeButton = <LightModeIcon />
+    }
 
     return (
         <AppBar position="static">
@@ -59,7 +70,7 @@ export default function Header() {
                     color="inherit"
                     onClick={toggleMode}
                 >
-                    {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+                    {themeModeButton}
                 </IconButton>
                 <IconButton
                     size="large"

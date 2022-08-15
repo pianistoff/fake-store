@@ -3,12 +3,12 @@ import Typography from "@mui/material/Typography";
 import translate from "translate";
 import { useSelector } from "react-redux";
 import "./navbar.css";
-import { selectLang } from "../common/langSlice";
+import { selectLanguage } from "../common/userSettingsSlice";
 
 const Navbar = () => {
     const [categoriesEn, setCategoriesEn] = React.useState([]);
     const [categoriesUk, setCategoriesUk] = React.useState([]);
-    const lang = useSelector(selectLang);
+    const language = useSelector(selectLanguage);
 
     React.useEffect(() => {
         async function getCategories() {
@@ -29,9 +29,9 @@ const Navbar = () => {
     }, [categoriesEn])
 
     let categoriesTarg;
-    if(lang === 'en') {
+    if(language === 'en') {
         categoriesTarg = categoriesEn
-    } else if (lang === "uk") {
+    } else if (language === "uk") {
         categoriesTarg = categoriesUk
     }
      
