@@ -8,9 +8,12 @@ import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchUsers } from '../common/usersSlice';
 
 const Login = () => {
     const { t } = useTranslation();
+    const dispatch = useDispatch();
 
     return (
         <Box
@@ -55,6 +58,7 @@ const Login = () => {
                         type="submit"
                         fullWidth
                         sx={{ marginBottom: '30px' }}
+                        onClick={() => {dispatch(fetchUsers())}}
                     >
                         {t('login')}
                     </Button>
