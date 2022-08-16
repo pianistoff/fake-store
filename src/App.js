@@ -1,29 +1,21 @@
 import Header from './header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from './footer/Footer';
-import RoutesList from "./common/RoutesList";
+import RoutesList from './common/RoutesList';
 import { useSelector } from 'react-redux';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import { selectThemeMode } from './common/userSettingsSlice';
+import darkTheme from './common/darkTheme';
+import lightTheme from './common/lightTheme';
 
 const App = () => {
     const themeMode = useSelector(selectThemeMode);
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: '#802c6e',
-            },
-            secondary: {
-                main: '#6e802c',
-            },
-            mode: themeMode,
-        },
-    });
+
     return (
         <BrowserRouter>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
                 <CssBaseline />
                 <Box
                     sx={{
