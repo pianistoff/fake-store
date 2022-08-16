@@ -20,6 +20,14 @@ const Login = () => {
     const usersData = useSelector(selectUsersData);
     const dispatch = useDispatch();
 
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [admin, setAdmin] = React.useState(false);
+
+    const handleSubmit = () => {
+        
+    }
+
     return (
         <Box
             sx={{
@@ -33,7 +41,7 @@ const Login = () => {
             >
                 {usersStatus === 'failed' && <Alert severity="error">{t('networkError')}</Alert>
 }
-                <form>
+                <form onSubmit={handleSubmit}>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -44,6 +52,8 @@ const Login = () => {
                         name="email"
                         autoComplete="email"
                         type="email"
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
                     />
                     <TextField
                         id="outlined-password-input"
@@ -52,12 +62,17 @@ const Login = () => {
                         fullWidth
                         required
                         autoComplete="current-password"
-                        // sx={{ marginBottom: "10px" }}
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
                     />
                     <Box display="flex" justifyContent="center">
                         <FormControlLabel
                             label={t('signInAsAdmin')}
-                            control={<Checkbox />}
+                            control={<Checkbox 
+                            name='admin'
+                            checked={admin}
+                            onChange={e => setAdmin(!admin)}
+                            />}
                         />
                     </Box>
                     <LoadingButton
@@ -66,9 +81,6 @@ const Login = () => {
                         loading={usersStatus === 'loading' ? true : false}
                         fullWidth
                         sx={{ marginBottom: '30px' }}
-                        onClick={() => {
-                            dispatch(fetchUsers());
-                        }}
                     >
                         {t('login')}
                     </LoadingButton>
