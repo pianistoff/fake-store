@@ -4,15 +4,20 @@ import '../common/translation';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Alert from '@mui/material/Alert';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../common/usersSlice';
+import { selectUsersStatus, selectUsersData } from '../common/usersSlice';
 
 const Login = () => {
     const { t } = useTranslation();
+    const usersStatus = useSelector(selectUsersStatus);
+    const usersData = useSelector(selectUsersData);
     const dispatch = useDispatch();
 
     return (
@@ -26,6 +31,8 @@ const Login = () => {
             <Box
                 sx={{ width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' } }}
             >
+                {usersStatus === 'failed' && <Alert severity="error">{t('networkError')}</Alert>
+}
                 <form>
                     <TextField
                         variant="outlined"
@@ -53,15 +60,18 @@ const Login = () => {
                             control={<Checkbox />}
                         />
                     </Box>
-                    <Button
+                    <LoadingButton
                         variant="contained"
                         type="submit"
+                        loading={usersStatus === 'loading' ? true : false}
                         fullWidth
                         sx={{ marginBottom: '30px' }}
-                        onClick={() => {dispatch(fetchUsers())}}
+                        onClick={() => {
+                            dispatch(fetchUsers());
+                        }}
                     >
                         {t('login')}
-                    </Button>
+                    </LoadingButton>
                 </form>
                 <Typography variant="button" component="p" textAlign="center">
                     {t('newCustomers')}

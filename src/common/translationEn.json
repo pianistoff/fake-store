@@ -5,5 +5,6 @@
     "register": "Register",
     "email": "Email",
     "password": "Password",
-    "signInAsAdmin": "Sign in as an administrator?"
+    "signInAsAdmin": "Sign in as an administrator?",
+    "networkError": "Problems connecting to the database!"
   }
