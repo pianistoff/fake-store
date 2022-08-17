@@ -46,7 +46,7 @@ export default function Header() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Link to="/" style={{ textDecoration: 'none' }}>
+                <Link to="/" style={{ textDecoration: 'none', marginRight: 'auto' }}>
                     <Typography variant="h6" component="h1" color="white">
                         FAKE STORE
                     </Typography>
