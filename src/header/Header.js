@@ -5,34 +5,14 @@ import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import { Link } from 'react-router-dom';
 import CategoriesNavigation from './CategoriesNavigation';
-import { switchToDark, switchToLight } from '../common/userSettingsSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectThemeMode } from './../common/userSettingsSlice';
 import LanguageDropdown from './LanguageDropdown';
+import ThemeButton from './ThemeButton';
 
 export default function Header() {
-    const themeMode = useSelector(selectThemeMode);
-    const dispatch = useDispatch();
-
-    const toggleMode = () => {
-        if (themeMode === 'light') {
-            dispatch(switchToDark());
-        } else if (themeMode === 'dark') {
-            dispatch(switchToLight());
-        }
-    };
-
-    let themeModeButton;
-    if (themeMode === 'light') {
-        themeModeButton = <DarkModeIcon />;
-    } else if (themeMode === 'dark') {
-        themeModeButton = <LightModeIcon />;
-    }
-
     return (
         <AppBar position="static">
             <Toolbar>
@@ -42,14 +22,7 @@ export default function Header() {
                     </Typography>
                 </Link>
                 <LanguageDropdown />
-                <IconButton
-                    size="large"
-                    aria-label="mode"
-                    color="inherit"
-                    onClick={toggleMode}
-                >
-                    {themeModeButton}
-                </IconButton>
+                <ThemeButton />
                 <IconButton size="large" aria-label="cart" color="inherit">
                     <Link to="/cart" style={{ color: 'white' }}>
                         <ShoppingCartIcon />
