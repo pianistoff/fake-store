@@ -2,9 +2,12 @@
     "copyright": "© 2022 Fake Store. Всі права захищено",
     "login": "Увійти",
     "newCustomers": "Нові покупці",
+    "existingCustomers": "Наявні клієнти",
     "register": "Зареєструватися",
     "email": "Електронна пошта",
+    "username": "Ім'я користувача",
     "password": "Пароль",
+    "firstName": "Ім'я",
     "signInAsAdmin": "Увійти як адміністратор?",
     "networkError": "Проблеми із зв'язком з базою даних!"
   }

@@ -58,6 +58,28 @@ const Register = () => {
                         type="email"
                     />
                     <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="username"
+                        label={t('username')}
+                        name="username"
+                        autoComplete="username"
+                        type="username"
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label={t('firstName')}
+                        name="firstName"
+                        autoComplete="firstName"
+                        type="firstName"
+                    />
+                    <TextField
                         id="outlined-password-input"
                         label={t('password')}
                         type="password"
@@ -76,14 +98,14 @@ const Register = () => {
                     </LoadingButton>
                 </form>
                 <Typography variant="button" component="p" textAlign="center">
-                    {t('newCustomers')}
+                    {t('existingCustomers')}
                 </Typography>
                 <Button variant="outlined" className="btn" fullWidth>
                     <Link
                         to="/register"
                         style={{ color: '#802c6e', textDecoration: 'none' }}
                     >
-                        {t('register')}
+                        {t('login')}
                     </Link>
                 </Button>
             </Box>

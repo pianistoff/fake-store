@@ -2,9 +2,12 @@
     "copyright": "© 2022 Fake Store. All right reserved",
     "login": "Log in",
     "newCustomers": "New Customers",
+    "existingCustomers": "Existing Customers",
     "register": "Register",
     "email": "Email",
+    "username": "Username",
     "password": "Password",
+    "firstName": "First name",
     "signInAsAdmin": "Sign in as an administrator?",
     "networkError": "Problems connecting to the database!"
   }
