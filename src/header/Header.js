@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -45,16 +46,24 @@ export default function Header() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Typography variant="h6" component="h1" sx={{ flexGrow: 1 }}>
-                    FAKE STORE
-                </Typography>
+                <Button variant="text" sx={{ marginRight: 'auto' }}>
+                    <Link to="/" style={{ textDecoration: 'none'}}>
+                        <Typography variant="h6" component="h1" color="white">
+                            FAKE STORE
+                        </Typography>
+                    </Link>
+                </Button>
                 <Select
                     defaultValue="uk"
                     variant="outlined"
                     sx={{ color: 'white' }}
                 >
-                    <MenuItem value="uk" onClick={() => dispatch(switchToUk())}>UK</MenuItem>
-                    <MenuItem value="en" onClick={() => dispatch(switchToEn())}>EN</MenuItem>
+                    <MenuItem value="uk" onClick={() => dispatch(switchToUk())}>
+                        UK
+                    </MenuItem>
+                    <MenuItem value="en" onClick={() => dispatch(switchToEn())}>
+                        EN
+                    </MenuItem>
                 </Select>
                 <IconButton
                     size="large"
