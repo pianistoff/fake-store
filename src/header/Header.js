@@ -46,13 +46,11 @@ export default function Header() {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Button variant="text" sx={{ marginRight: 'auto' }}>
-                    <Link to="/" style={{ textDecoration: 'none'}}>
-                        <Typography variant="h6" component="h1" color="white">
-                            FAKE STORE
-                        </Typography>
-                    </Link>
-                </Button>
+                <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Typography variant="h6" component="h1" color="white">
+                        FAKE STORE
+                    </Typography>
+                </Link>
                 <Select
                     defaultValue="uk"
                     variant="outlined"
