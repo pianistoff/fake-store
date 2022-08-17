@@ -10,8 +10,14 @@ nav::-webkit-scrollbar {
     display: none;
 }
 
-nav > * {
-    min-width: fit-content;
+button {
+    min-width: fit-content !important;
+    max-height: min-content;
+}
+
+p {
+    max-height: min-content;
+    min-width: max-content;
 }
 
 @media (min-width: 562px) {
