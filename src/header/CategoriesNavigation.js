@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { useTranslation } from 'react-i18next';
 import './navbar.css';
 
-const Navbar = () => {
+const CategoriesNavigation = () => {
     const { t } = useTranslation();
 
     return (
@@ -33,4 +33,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default CategoriesNavigation;

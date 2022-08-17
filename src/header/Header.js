@@ -11,7 +11,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
+import CategoriesNavigation from './CategoriesNavigation';
 import { switchToDark, switchToLight } from '../common/userSettingsSlice';
 import { switchToEn, switchToUk } from '../common/userSettingsSlice';
 import { useSelector, useDispatch } from 'react-redux';
@@ -82,7 +82,7 @@ export default function Header() {
                     </Link>
                 </IconButton>
             </Toolbar>
-            <Navbar />
+            <CategoriesNavigation />
         </AppBar>
     );
 }
