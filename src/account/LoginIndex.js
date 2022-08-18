@@ -21,7 +21,15 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        const currentUser = usersData.find(user => user.email === loginDetails.email)
+        if (currentUser === undefined) {
+            return console.log('error');
+        }
+        if (currentUser.password === loginDetails.password) {
+            console.log('logged in');
+        } else {
+            console.log('error')
+        }
     };
 
     return (
