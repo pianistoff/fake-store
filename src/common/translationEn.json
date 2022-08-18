@@ -2,6 +2,7 @@
     "copyright": "© 2022 Fake Store. All right reserved",
     "login": "Log in",
     "newCustomers": "New Customers",
+    "currentCustomers": "Current Customers",
     "register": "Register",
     "email": "Email",
     "password": "Password",
@@ -10,5 +11,6 @@
     "electronics": "electronics",
     "jewelery": "jewelery",
     "men's clothing": "men's clothing",
-    "women's clothing": "women's clothing"
+    "women's clothing": "women's clothing",
+    "loginDataDismatch": "Your email address or password is incorrect. Please try again."
 }

@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 const Login = () => {
     const usersData = useSelector(selectUsersData);
     const dispatch = useDispatch();
+    const [loginStatus, setLoginStatus] = React.useState('logged out')
 
     const [loginDetails, setLoginDetails] = React.useState({
         email: '',
@@ -25,13 +26,13 @@ const Login = () => {
             (user) => user.email === loginDetails.email
         );
         if (currentUser === undefined) {
-            return console.log('error');
+            return setLoginStatus('data dismatch');
         }
         if (currentUser.password === loginDetails.password) {
             localStorage.setItem('loginDetails', JSON.stringify(loginDetails));
-            console.log('logged in');
+            setLoginStatus('logged in');
         } else {
-            console.log('error');
+            setLoginStatus('data dismatch');
         }
     };
 
@@ -47,6 +48,7 @@ const Login = () => {
                 loginDetails={loginDetails}
                 setLoginDetails={setLoginDetails}
                 handleSubmit={handleSubmit}
+                loginStatus={loginStatus}
             />
         </Box>
     );

@@ -7,18 +7,29 @@ import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import LoginForm from './LoginForm';
 
-
-const LoginContent = ({ loginDetails, setLoginDetails, handleSubmit }) => {
+const LoginContent = ({
+    loginDetails,
+    setLoginDetails,
+    handleSubmit,
+    loginStatus,
+}) => {
     const { t } = useTranslation();
     const usersStatus = useSelector(selectUsersStatus);
 
     let content;
     if (usersStatus === null || usersStatus === 'loading') {
-        content = <CircularProgress color='primary' />;
+        content = <CircularProgress color="primary" />;
     } else if (usersStatus === 'failed') {
         content = <Alert severity="error">{t('networkError')}</Alert>;
     } else if (usersStatus === 'success') {
-        content = <LoginForm loginDetails={loginDetails} setLoginDetails={setLoginDetails} handleSubmit={handleSubmit} />
+        content = (
+            <LoginForm
+                loginDetails={loginDetails}
+                setLoginDetails={setLoginDetails}
+                handleSubmit={handleSubmit}
+                loginStatus={loginStatus}
+            />
+        );
     }
 
     return content;

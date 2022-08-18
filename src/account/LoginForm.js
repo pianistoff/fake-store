@@ -6,10 +6,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import Alert from '@mui/material/Alert';
 import { useTranslation } from 'react-i18next';
 import '../common/translation';
 
-const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit }) => {
+const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit, loginStatus }) => {
     const { t } = useTranslation();
 
     const handleEmailChange = (e) =>
@@ -36,6 +37,10 @@ const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit }) => {
                 width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' },
             }}
         >
+            { loginStatus === 'data dismatch' && <Alert severity="error">{t('loginDataDismatch')}</Alert>}
+            <Typography variant="button" component="p" textAlign="center">
+                {t('currentCustomers')}
+            </Typography>
             <form onSubmit={handleSubmit}>
                 <TextField
                     variant="outlined"
