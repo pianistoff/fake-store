@@ -13,8 +13,8 @@ const LoginContent = ({ loginDetails, setLoginDetails, handleSubmit }) => {
     const usersStatus = useSelector(selectUsersStatus);
 
     let content;
-    if (usersStatus === null || selectUsersStatus === 'loading') {
-        content = <CircularProgress />;
+    if (usersStatus === null || usersStatus === 'loading') {
+        content = <CircularProgress color='primary' />;
     } else if (usersStatus === 'failed') {
         content = <Alert severity="error">t('networkError')</Alert>;
     } else if (usersStatus === 'success') {
