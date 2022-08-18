@@ -16,7 +16,7 @@ const LoginContent = ({ loginDetails, setLoginDetails, handleSubmit }) => {
     if (usersStatus === null || usersStatus === 'loading') {
         content = <CircularProgress color='primary' />;
     } else if (usersStatus === 'failed') {
-        content = <Alert severity="error">t('networkError')</Alert>;
+        content = <Alert severity="error">{t('networkError')}</Alert>;
     } else if (usersStatus === 'success') {
         content = <LoginForm loginDetails={loginDetails} setLoginDetails={setLoginDetails} handleSubmit={handleSubmit} />
     }
