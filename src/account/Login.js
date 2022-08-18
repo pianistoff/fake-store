@@ -34,7 +34,7 @@ const Login = () => {
     return (
         <Box
             sx={{
-                display: { xs: 'block', sm: 'flex' },
+                display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
             }}
