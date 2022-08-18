@@ -24,6 +24,10 @@ const Login = () => {
     const [password, setPassword] = React.useState('');
     const [admin, setAdmin] = React.useState(false);
 
+    React.useEffect(() => {
+        dispatch(fetchUsers());
+    }, [])
+
     const handleSubmit = () => {
         
     }
