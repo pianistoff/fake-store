@@ -37,7 +37,7 @@ const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit, loginStatus })
                 width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' },
             }}
         >
-            { loginStatus === 'data dismatch' && <Alert severity="error">{t('loginDataDismatch')}</Alert>}
+            { loginStatus === 'data dismatch' && <Alert severity="error" style={{marginBottom: "20px"}}>{t('loginDataDismatch')}</Alert>}
             <Typography variant="button" component="p" textAlign="center">
                 {t('currentCustomers')}
             </Typography>
