@@ -4,17 +4,21 @@ import { fetchUsers } from '../common/usersSlice';
 import { selectUsersData } from '../common/usersSlice';
 import LoginContent from './LoginContent';
 import Box from '@mui/material/Box';
+import { show, hide } from '../common/displaySnackbarSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const usersData = useSelector(selectUsersData);
     const dispatch = useDispatch();
-    const [loginStatus, setLoginStatus] = React.useState('logged out')
+    const navigate = useNavigate();
 
     const [loginDetails, setLoginDetails] = React.useState({
         email: '',
         password: '',
         isAdmin: false,
     });
+
+    const [dataDismatch, setDataDismatch] = React.useState(false);
 
     React.useEffect(() => {
         dispatch(fetchUsers());
@@ -26,13 +30,17 @@ const Login = () => {
             (user) => user.email === loginDetails.email
         );
         if (currentUser === undefined) {
-            return setLoginStatus('data dismatch');
+            return setDataDismatch(true);
         }
         if (currentUser.password === loginDetails.password) {
             localStorage.setItem('loginDetails', JSON.stringify(loginDetails));
-            setLoginStatus('logged in');
+            navigate(-1);
+            dispatch(show());
+            setTimeout(() => {
+                dispatch(hide());
+            }, 5000);
         } else {
-            setLoginStatus('data dismatch');
+            setDataDismatch(true);
         }
     };
 
@@ -48,7 +56,7 @@ const Login = () => {
                 loginDetails={loginDetails}
                 setLoginDetails={setLoginDetails}
                 handleSubmit={handleSubmit}
-                loginStatus={loginStatus}
+                dataDismatch={dataDismatch}
             />
         </Box>
     );

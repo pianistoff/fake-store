@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux';
 import { selectUsersStatus } from '../common/usersSlice';
 import { useTranslation } from 'react-i18next';
 import '../common/translation';
-import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
 import LoginForm from './LoginForm';
+import Alert from '@mui/material/Alert';
 
 const LoginContent = ({
     loginDetails,
     setLoginDetails,
     handleSubmit,
-    loginStatus,
+    dataDismatch
 }) => {
     const { t } = useTranslation();
     const usersStatus = useSelector(selectUsersStatus);
@@ -27,7 +27,7 @@ const LoginContent = ({
                 loginDetails={loginDetails}
                 setLoginDetails={setLoginDetails}
                 handleSubmit={handleSubmit}
-                loginStatus={loginStatus}
+                dataDismatch={dataDismatch}
             />
         );
     }

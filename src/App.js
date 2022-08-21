@@ -9,13 +9,16 @@ import Box from '@mui/material/Box';
 import { selectThemeMode } from './common/userSettingsSlice';
 import darkTheme from './common/darkTheme';
 import lightTheme from './common/lightTheme';
+import LoginSuccessfullSnackbar from './account/LoginSuccessfullSnackbar';
 
 const App = () => {
     const themeMode = useSelector(selectThemeMode);
 
     return (
         <BrowserRouter>
-            <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
+            <ThemeProvider
+                theme={themeMode === 'light' ? lightTheme : darkTheme}
+            >
                 <CssBaseline />
                 <Box
                     sx={{
@@ -29,6 +32,7 @@ const App = () => {
                     <div style={{ padding: '10px' }}>
                         <RoutesList />
                     </div>
+                    <LoginSuccessfullSnackbar />
                     <Footer />
                 </Box>
             </ThemeProvider>

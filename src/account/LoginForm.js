@@ -10,26 +10,31 @@ import Alert from '@mui/material/Alert';
 import { useTranslation } from 'react-i18next';
 import '../common/translation';
 
-const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit, loginStatus }) => {
+const LoginForm = ({
+    loginDetails,
+    setLoginDetails,
+    handleSubmit,
+    dataDismatch,
+}) => {
     const { t } = useTranslation();
 
     const handleEmailChange = (e) =>
-    setLoginDetails((prevLoginDetails) => ({
-        ...prevLoginDetails,
-        email: e.target.value,
-    }))
+        setLoginDetails((prevLoginDetails) => ({
+            ...prevLoginDetails,
+            email: e.target.value,
+        }));
 
     const handlePasswordChange = (e) =>
-    setLoginDetails((prevLoginDetails) => ({
-        ...prevLoginDetails,
-        password: e.target.value,
-    }))
+        setLoginDetails((prevLoginDetails) => ({
+            ...prevLoginDetails,
+            password: e.target.value,
+        }));
 
-    const handleIsAdminChange = () => setLoginDetails(
-        (prevLoginDetails) => ({
+    const handleIsAdminChange = () =>
+        setLoginDetails((prevLoginDetails) => ({
             ...prevLoginDetails,
             isAdmin: !prevLoginDetails.isAdmin,
-        }))
+        }));
 
     return (
         <Box
@@ -37,7 +42,11 @@ const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit, loginStatus })
                 width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' },
             }}
         >
-            { loginStatus === 'data dismatch' && <Alert severity="error" style={{marginBottom: "20px"}}>{t('loginDataDismatch')}</Alert>}
+            {dataDismatch && (
+                <Alert severity="error" style={{ marginBottom: '20px' }}>
+                    {t('loginDataDismatch')}
+                </Alert>
+            )}
             <Typography variant="button" component="p" textAlign="center">
                 {t('currentCustomers')}
             </Typography>
