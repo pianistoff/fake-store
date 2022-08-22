@@ -48,12 +48,6 @@ const Register = () => {
         }
     }, []);
 
-    React.useEffect(() => {
-        console.log(inputs);
-    }, [inputs]);
-
-    const handleSubmit = () => {};
-
     return (
         <Box
             sx={{
