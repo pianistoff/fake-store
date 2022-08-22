@@ -6,14 +6,15 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
-import useGeoLocation from './useGeoLocation';
 
 const Register = () => {
     const { t } = useTranslation();
-    const geoLocation = useGeoLocation();
     const [inputs, setInputs] = React.useState({
         address: {
-            geolocation: geoLocation,
+            geolocation: {
+                lat: '',
+                long: ''
+            },
             city: '',
             street: '',
             number: 0,
@@ -46,6 +47,10 @@ const Register = () => {
             });
         }
     }, []);
+
+    React.useEffect(() => {
+        console.log(inputs);
+    }, [inputs]);
 
     const handleSubmit = () => {};
 
