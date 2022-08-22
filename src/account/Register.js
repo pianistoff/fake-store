@@ -6,15 +6,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
+import useGeoLocation from './useGeoLocation';
 
 const Register = () => {
     const { t } = useTranslation();
+    const geoLocation = useGeoLocation();
     const [inputs, setInputs] = React.useState({
         address: {
-            geolocation: {
-                lat: '',
-                long: '',
-            },
+            geolocation: geoLocation,
             city: '',
             street: '',
             number: 0,
@@ -31,6 +30,23 @@ const Register = () => {
         phone: '',
     });
 
+    React.useEffect(() => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((location) => {
+                setInputs((prevInputs) => ({
+                    ...prevInputs,
+                    address: {
+                        ...prevInputs.address,
+                        geolocation: {
+                            lat: JSON.stringify(location.coords.latitude),
+                            long: JSON.stringify(location.coords.longitude),
+                        },
+                    },
+                }));
+            });
+        }
+    }, []);
+
     const handleSubmit = () => {};
 
     return (
@@ -45,9 +61,13 @@ const Register = () => {
                 sx={{ width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' } }}
             >
                 <form onSubmit={handleSubmit}>
-                <Typography variant="button" component="p" textAlign="center">
-                    {t('newCustomers')}
-                </Typography>
+                    <Typography
+                        variant="button"
+                        component="p"
+                        textAlign="center"
+                    >
+                        {t('newCustomers')}
+                    </Typography>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -86,9 +106,9 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="firstName"
+                        id="lastName"
                         label={t('lastName')}
-                        name="firstName"
+                        name="lastName"
                         autoComplete="lastName"
                         type="lastName"
                     />
