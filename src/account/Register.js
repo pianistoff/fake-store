@@ -48,7 +48,95 @@ const Register = () => {
         }
     }, []);
 
-    const handleSubmit = () => {};
+    const handleEmail = (e) => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            email: e.target.value
+        }))
+    }
+
+    const handleUsername = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            username: e.target.value
+        }))
+    }
+
+    const handleFirstName = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            name: {
+                ...prevInputs.name,
+                firstname: e.target.value
+            }
+        }))
+    }
+
+    const handleLastName = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            name: {
+                ...prevInputs.name,
+                lastname: e.target.value
+            }
+        }))
+    }
+
+    const handlePassword = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            password: e.target.value
+        }))
+    }
+
+    const handleCity = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            address: {
+                ...prevInputs.address,
+                city: e.target.value
+            }
+        }))
+    }
+
+    const handleStreet = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            address: {
+                ...prevInputs.address,
+                street: e.target.value
+            }
+        }))
+    }
+
+    const handleBuildingNumber = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            address: {
+                ...prevInputs.address,
+                number: e.target.value
+            }
+        }))
+    }
+
+    const handleZipCode = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            address: {
+                ...prevInputs.address,
+                zipcode: e.target.value
+            }
+        }))
+    }
+
+    const handlePhone = e => {
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            phone: e.target.value
+        }))
+    }
+
+    const handleSubmit = (e) => {};
 
     return (
         <Box
@@ -79,6 +167,8 @@ const Register = () => {
                         name="email"
                         autoComplete="email"
                         type="email"
+                        onChange={handleEmail}
+                        value={inputs.email}
                     />
                     <TextField
                         variant="outlined"
@@ -90,6 +180,8 @@ const Register = () => {
                         name="username"
                         autoComplete="username"
                         type="username"
+                        onChange={handleUsername}
+                        value={inputs.username}
                     />
                     <TextField
                         variant="outlined"
@@ -101,6 +193,8 @@ const Register = () => {
                         name="firstName"
                         autoComplete="firstName"
                         type="firstName"
+                        onChange={handleFirstName}
+                        value={inputs.name.firstname}
                     />
                     <TextField
                         variant="outlined"
@@ -112,17 +206,8 @@ const Register = () => {
                         name="lastName"
                         autoComplete="lastName"
                         type="lastName"
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="phone"
-                        label={t('phone')}
-                        name="phone"
-                        autoComplete="phone"
-                        type="phone"
+                        onChange={handleLastName}
+                        value={inputs.name.lastname}
                     />
                     <TextField
                         id="outlined-password-input"
@@ -132,6 +217,8 @@ const Register = () => {
                         fullWidth
                         required
                         autoComplete="current-password"
+                        onChange={handlePassword}
+                        value={inputs.password}
                     />
                     <TextField
                         variant="outlined"
@@ -143,6 +230,8 @@ const Register = () => {
                         name="city"
                         autoComplete="city"
                         type="city"
+                        onChange={handleCity}
+                        value={inputs.address.city}
                     />
                     <TextField
                         variant="outlined"
@@ -154,6 +243,8 @@ const Register = () => {
                         name="street"
                         autoComplete="street"
                         type="street"
+                        onChange={handleStreet}
+                        value={inputs.address.street}
                     />
                     <TextField
                         variant="outlined"
@@ -165,6 +256,8 @@ const Register = () => {
                         name="buildingNumber"
                         autoComplete="buildingNumber"
                         type="buildingNumber"
+                        onChange={handleBuildingNumber}
+                        value={inputs.address.number}
                     />
                     <TextField
                         variant="outlined"
@@ -176,6 +269,21 @@ const Register = () => {
                         name="zipCode"
                         autoComplete="zipCode"
                         type="zipCode"
+                        onChange={handleZipCode}
+                        value={inputs.address.zipcode}
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="phone"
+                        label={t('phone')}
+                        name="phone"
+                        autoComplete="phone"
+                        type="phone"
+                        onChange={handlePhone}
+                        value={inputs.phone}
                     />
                     <Button
                         variant="contained"
