@@ -4,7 +4,6 @@ import '../common/translation';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import LoadingButton from '@mui/lab/LoadingButton';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -75,15 +74,14 @@ const Login = () => {
                             />}
                         />
                     </Box>
-                    <LoadingButton
+                    <Button
                         variant="contained"
                         type="submit"
-                        loading={usersStatus === 'loading' ? true : false}
                         fullWidth
                         sx={{ marginBottom: '30px' }}
                     >
                         {t('login')}
-                    </LoadingButton>
+                    </Button>
                 </form>
                 <Typography variant="button" component="p" textAlign="center">
                     {t('newCustomers')}

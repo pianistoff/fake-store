@@ -4,7 +4,6 @@ import '../common/translation';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import LoadingButton from '@mui/lab/LoadingButton';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
@@ -46,6 +45,9 @@ const Register = () => {
                 sx={{ width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' } }}
             >
                 <form onSubmit={handleSubmit}>
+                <Typography variant="button" component="p" textAlign="center">
+                    {t('newCustomers')}
+                </Typography>
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -80,22 +82,88 @@ const Register = () => {
                         type="firstName"
                     />
                     <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="firstName"
+                        label={t('lastName')}
+                        name="firstName"
+                        autoComplete="lastName"
+                        type="lastName"
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="phone"
+                        label={t('phone')}
+                        name="phone"
+                        autoComplete="phone"
+                        type="phone"
+                    />
+                    <TextField
                         id="outlined-password-input"
                         label={t('password')}
+                        margin="normal"
                         type="password"
                         fullWidth
                         required
                         autoComplete="current-password"
                     />
-                    <LoadingButton
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="city"
+                        label={t('city')}
+                        name="city"
+                        autoComplete="city"
+                        type="city"
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="street"
+                        label={t('street')}
+                        name="street"
+                        autoComplete="street"
+                        type="street"
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="buildingNumber"
+                        label={t('buildingNumber')}
+                        name="buildingNumber"
+                        autoComplete="buildingNumber"
+                        type="buildingNumber"
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="zipCode"
+                        label={t('zipCode')}
+                        name="zipCode"
+                        autoComplete="zipCode"
+                        type="zipCode"
+                    />
+                    <Button
                         variant="contained"
                         type="submit"
-                        loading={false}
                         fullWidth
                         sx={{ marginBottom: '30px' }}
                     >
-                        {t('login')}
-                    </LoadingButton>
+                        {t('register')}
+                    </Button>
                 </form>
                 <Typography variant="button" component="p" textAlign="center">
                     {t('existingCustomers')}

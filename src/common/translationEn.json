@@ -8,6 +8,12 @@
     "username": "Username",
     "password": "Password",
     "firstName": "First name",
+    "lastName": "Last name",
+    "phone": "Phone",
+    "city": "City",
+    "street": "Street",
+    "buildingNumber": "Building number",
+    "zipCode": "ZIP code",
     "signInAsAdmin": "Sign in as an administrator?",
     "networkError": "Problems connecting to the database!"
   }
