@@ -48,6 +48,8 @@ const Register = () => {
         }
     }, []);
 
+    const handleSubmit = () => {};
+
     return (
         <Box
             sx={{
