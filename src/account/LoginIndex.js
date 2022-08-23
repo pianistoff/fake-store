@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import { show, hide } from '../common/displaySnackbarSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const LoginIndex = () => {
     const usersData = useSelector(selectUsersData);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -62,4 +62,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginIndex;
