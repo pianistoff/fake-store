@@ -11,28 +11,30 @@ const LoginContent = ({
     loginDetails,
     setLoginDetails,
     handleSubmit,
-    dataDismatch
+    dataDismatch,
 }) => {
     const { t } = useTranslation();
     const usersStatus = useSelector(selectUsersStatus);
 
-    let content;
-    if (usersStatus === null || usersStatus === 'loading') {
-        content = <CircularProgress color="primary" />;
-    } else if (usersStatus === 'failed') {
-        content = <Alert severity="error">{t('networkError')}</Alert>;
-    } else if (usersStatus === 'success') {
-        content = (
-            <LoginForm
-                loginDetails={loginDetails}
-                setLoginDetails={setLoginDetails}
-                handleSubmit={handleSubmit}
-                dataDismatch={dataDismatch}
-            />
-        );
-    }
-
-    return content;
+    return (
+        <>
+            {usersStatus === null ||
+                (usersStatus === 'loading' && (
+                    <CircularProgress color="primary" />
+                ))}
+            {usersStatus === 'failed' && (
+                <Alert severity="error">{t('networkError')}</Alert>
+            )}
+            {usersStatus === 'success' && (
+                <LoginForm
+                    loginDetails={loginDetails}
+                    setLoginDetails={setLoginDetails}
+                    handleSubmit={handleSubmit}
+                    dataDismatch={dataDismatch}
+                />
+            )}
+        </>
+    );
 };
 
 export default LoginContent;
