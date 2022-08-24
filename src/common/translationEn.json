@@ -12,5 +12,6 @@
     "jewelery": "jewelery",
     "men's clothing": "men's clothing",
     "women's clothing": "women's clothing",
-    "loginDataDismatch": "Your email address or password is incorrect. Please try again."
+    "loginDataDismatch": "Your email address or password is incorrect. Please try again.",
+    "successfulLogin": "You successfully logged in!"
 }
