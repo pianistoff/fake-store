@@ -18,13 +18,6 @@ const ThemeButton = () => {
         }
     };
 
-    let themeModeButton;
-    if (themeMode === 'light') {
-        themeModeButton = <DarkModeIcon />;
-    } else if (themeMode === 'dark') {
-        themeModeButton = <LightModeIcon />;
-    }
-
     return (
         <IconButton
             size="large"
@@ -32,7 +25,7 @@ const ThemeButton = () => {
             color="inherit"
             onClick={toggleMode}
         >
-            {themeModeButton}
+            {themeMode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
         </IconButton>
     );
 };
