@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -17,7 +16,6 @@ const LoginForm = ({
     dataDismatch,
 }) => {
     const { t } = useTranslation();
-    const navigate = useNavigate();
 
     const handleEmailChange = (e) =>
         setLoginDetails((prevLoginDetails) => ({
@@ -37,16 +35,8 @@ const LoginForm = ({
             isAdmin: !prevLoginDetails.isAdmin,
         }));
 
-    const handleRegisterLink = () => {
-        navigate('/register');
-    }
-
     return (
-        <Box
-            sx={{
-                width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' },
-            }}
-        >
+        <>
             {dataDismatch && (
                 <Alert severity="error" style={{ marginBottom: '20px' }}>
                     {t('loginDataDismatch')}
@@ -100,13 +90,7 @@ const LoginForm = ({
                     {t('login')}
                 </Button>
             </form>
-            <Typography variant="button" component="p" textAlign="center">
-                {t('newCustomers')}
-            </Typography>
-            <Button variant="outlined" className="btn" fullWidth onClick={handleRegisterLink}>
-                {t('register')}
-            </Button>
-        </Box>
+        </>
     );
 };
 
