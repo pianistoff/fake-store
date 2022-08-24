@@ -4,7 +4,7 @@ import { fetchUsers } from '../common/usersSlice';
 import { selectUsersData } from '../common/usersSlice';
 import LoginForm from './LoginForm';
 import Box from '@mui/material/Box';
-import { show, hide } from '../common/displaySnackbarSlice';
+import { showSnackbar, hideSnackbar } from '../common/displaySnackbarSlice';
 import { useNavigate } from 'react-router-dom';
 import AlternativelyRegister from './AlternativelyRegister';
 import { selectUsersStatus } from '../common/usersSlice';
@@ -42,9 +42,9 @@ const LoginIndex = () => {
         if (currentUser.password === loginDetails.password) {
             localStorage.setItem('loginDetails', JSON.stringify(loginDetails));
             navigate(-1);
-            dispatch(show());
+            dispatch(showSnackbar());
             setTimeout(() => {
-                dispatch(hide());
+                dispatch(hideSnackbar());
             }, 5000);
         } else {
             setDataDismatch(true);

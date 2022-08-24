@@ -4,16 +4,16 @@ export const displaySnackbarSlice = createSlice({
     name: 'displaySnackbar',
     initialState: false,
     reducers: {
-        show: () => {
+        showSnackbar: () => {
             return true;
         },
-        hide: () => {
+        hideSnackbar: () => {
             return false;
         }
     },
 });
 
-export const { show, hide } = displaySnackbarSlice.actions;
+export const { showSnackbar, hideSnackbar } = displaySnackbarSlice.actions;
 
 export default displaySnackbarSlice.reducer;
 
