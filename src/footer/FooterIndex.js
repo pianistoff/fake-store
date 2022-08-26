@@ -5,27 +5,13 @@ import IconButton from '@mui/material/IconButton';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PinterestIcon from '@mui/icons-material/Pinterest';
-import { useSelector } from 'react-redux';
 import './footer.css';
 import { useTranslation } from 'react-i18next';
 import '../common/translation';
-import { selectThemeMode } from './../common/userSettingsSlice';
-import { styled } from '@mui/system';
+import FooterTag from './FooterTag';
 
 const Footer = () => {
     const { t } = useTranslation();
-    const themeMode = useSelector(selectThemeMode);
-
-    let backgroundColor;
-    if (themeMode === 'light') {
-        backgroundColor = '#802c6e';
-    } else if (themeMode === 'dark') {
-        backgroundColor = '#272727';
-    }
-
-    const FooterTag = styled('footer')({
-        backgroundColor: backgroundColor,
-    });
 
     return (
         <Suspense fallback="Loading...">

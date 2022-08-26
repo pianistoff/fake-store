@@ -1,6 +1,6 @@
 import Header from './header/Header';
 import { BrowserRouter } from 'react-router-dom';
-import Footer from './footer/Footer';
+import Footer from './footer/FooterIndex';
 import RoutesList from './common/RoutesList';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
