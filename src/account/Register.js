@@ -5,15 +5,16 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
     const [inputs, setInputs] = React.useState({
         address: {
             geolocation: {
                 lat: '',
-                long: ''
+                long: '',
             },
             city: '',
             street: '',
@@ -49,94 +50,98 @@ const Register = () => {
     }, []);
 
     const handleEmail = (e) => {
-        setInputs(prevInputs => ({
+        setInputs((prevInputs) => ({
             ...prevInputs,
-            email: e.target.value
-        }))
-    }
+            email: e.target.value,
+        }));
+    };
 
-    const handleUsername = e => {
-        setInputs(prevInputs => ({
+    const handleUsername = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
-            username: e.target.value
-        }))
-    }
+            username: e.target.value,
+        }));
+    };
 
-    const handleFirstName = e => {
-        setInputs(prevInputs => ({
+    const handleFirstName = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
             name: {
                 ...prevInputs.name,
-                firstname: e.target.value
-            }
-        }))
-    }
+                firstname: e.target.value,
+            },
+        }));
+    };
 
-    const handleLastName = e => {
-        setInputs(prevInputs => ({
+    const handleLastName = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
             name: {
                 ...prevInputs.name,
-                lastname: e.target.value
-            }
-        }))
-    }
+                lastname: e.target.value,
+            },
+        }));
+    };
 
-    const handlePassword = e => {
-        setInputs(prevInputs => ({
+    const handlePassword = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
-            password: e.target.value
-        }))
-    }
+            password: e.target.value,
+        }));
+    };
 
-    const handleCity = e => {
-        setInputs(prevInputs => ({
-            ...prevInputs,
-            address: {
-                ...prevInputs.address,
-                city: e.target.value
-            }
-        }))
-    }
-
-    const handleStreet = e => {
-        setInputs(prevInputs => ({
+    const handleCity = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
             address: {
                 ...prevInputs.address,
-                street: e.target.value
-            }
-        }))
-    }
+                city: e.target.value,
+            },
+        }));
+    };
 
-    const handleBuildingNumber = e => {
-        setInputs(prevInputs => ({
+    const handleStreet = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
             address: {
                 ...prevInputs.address,
-                number: e.target.value
-            }
-        }))
-    }
+                street: e.target.value,
+            },
+        }));
+    };
 
-    const handleZipCode = e => {
-        setInputs(prevInputs => ({
+    const handleBuildingNumber = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
             address: {
                 ...prevInputs.address,
-                zipcode: e.target.value
-            }
-        }))
-    }
+                number: e.target.value,
+            },
+        }));
+    };
 
-    const handlePhone = e => {
-        setInputs(prevInputs => ({
+    const handleZipCode = (e) => {
+        setInputs((prevInputs) => ({
             ...prevInputs,
-            phone: e.target.value
-        }))
-    }
+            address: {
+                ...prevInputs.address,
+                zipcode: e.target.value,
+            },
+        }));
+    };
+
+    const handlePhone = (e) => {
+        setInputs((prevInputs) => ({
+            ...prevInputs,
+            phone: e.target.value,
+        }));
+    };
 
     const handleSubmit = (e) => {};
+
+    const handleLoginLink = () => {
+        navigate('/login');
+    }
 
     return (
         <Box
@@ -297,13 +302,8 @@ const Register = () => {
                 <Typography variant="button" component="p" textAlign="center">
                     {t('existingCustomers')}
                 </Typography>
-                <Button variant="outlined" className="btn" fullWidth>
-                    <Link
-                        to="/register"
-                        style={{ color: '#802c6e', textDecoration: 'none' }}
-                    >
-                        {t('login')}
-                    </Link>
+                <Button variant="outlined" className="btn" fullWidth onClick={handleLoginLink}>
+                    {t('login')}
                 </Button>
             </Box>
         </Box>
