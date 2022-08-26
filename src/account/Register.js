@@ -5,11 +5,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import AlternativelyLogin from './AlternativelyLogin';
 
 const Register = () => {
     const { t } = useTranslation();
-    const navigate = useNavigate();
     const [inputs, setInputs] = React.useState({
         address: {
             geolocation: {
@@ -138,10 +137,6 @@ const Register = () => {
     };
 
     const handleSubmit = (e) => {};
-
-    const handleLoginLink = () => {
-        navigate('/login');
-    }
 
     return (
         <Box
@@ -298,13 +293,8 @@ const Register = () => {
                     >
                         {t('register')}
                     </Button>
+                    <AlternativelyLogin />
                 </form>
-                <Typography variant="button" component="p" textAlign="center">
-                    {t('existingCustomers')}
-                </Typography>
-                <Button variant="outlined" className="btn" fullWidth onClick={handleLoginLink}>
-                    {t('login')}
-                </Button>
             </Box>
         </Box>
     );
