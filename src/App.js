@@ -2,23 +2,15 @@ import Header from './header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import Footer from './footer/Footer';
 import RoutesList from './common/RoutesList';
-import { useSelector } from 'react-redux';
-import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
-import { selectThemeMode } from './common/userSettingsSlice';
-import darkTheme from './common/darkTheme';
-import lightTheme from './common/lightTheme';
 import LoginSuccessfullSnackbar from './account/LoginSuccessfullSnackbar';
+import CustomThemeProvider from './common/CustomThemeProvider';
 
 const App = () => {
-    const themeMode = useSelector(selectThemeMode);
-
     return (
         <BrowserRouter>
-            <ThemeProvider
-                theme={themeMode === 'light' ? lightTheme : darkTheme}
-            >
+            <CustomThemeProvider>
                 <CssBaseline />
                 <Box
                     sx={{
@@ -35,7 +27,7 @@ const App = () => {
                     <LoginSuccessfullSnackbar />
                     <Footer />
                 </Box>
-            </ThemeProvider>
+            </CustomThemeProvider>
         </BrowserRouter>
     );
 };

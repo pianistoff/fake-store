@@ -11,7 +11,7 @@ import { selectUsersStatus } from '../common/usersSlice';
 import CircularProgress from '@mui/material/CircularProgress';
 import Alert from '@mui/material/Alert';
 import { useTranslation } from 'react-i18next';
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 
 const LoginIndex = () => {
     const usersData = useSelector(selectUsersData);
@@ -60,42 +60,49 @@ const LoginIndex = () => {
                 alignItems: 'center',
             }}
         >
-            {usersStatus === null ||
-                (usersStatus === 'loading' && (
-                    <CircularProgress color="primary" />
-                ))}
-            {usersStatus === 'failed' && (
-                <Alert severity="error">{t('networkError')}</Alert>
-            )}
-            {usersStatus === 'success' && (
-                <Box
-                    sx={{
-                        width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' },
-                    }}
-                >
-                    {dataDismatch && (
-                        <Alert
-                            severity="error"
-                            style={{ marginBottom: '20px' }}
-                        >
-                            {t('loginDataDismatch')}
-                        </Alert>
-                    )}
-                    <Typography
-                        variant="button"
-                        component="p"
-                        textAlign="center"
+            <>
+                {usersStatus === null ||
+                    (usersStatus === 'loading' && (
+                        <CircularProgress color="primary" />
+                    ))}
+                {usersStatus === 'failed' && (
+                    <Alert severity="error">{t('networkError')}</Alert>
+                )}
+                {usersStatus === 'success' && (
+                    <Box
+                        sx={{
+                            width: {
+                                xs: '100%',
+                                sm: '50%',
+                                md: '40%',
+                                lg: '30%',
+                            },
+                        }}
                     >
-                        {t('currentCustomers')}
-                    </Typography>
-                    <LoginForm
-                        loginDetails={loginDetails}
-                        setLoginDetails={setLoginDetails}
-                        handleSubmit={handleSubmit}
-                    />
-                    <AlternativelyRegister />
-                </Box>
-            )}
+                        {dataDismatch && (
+                            <Alert
+                                severity="error"
+                                style={{ marginBottom: '20px' }}
+                            >
+                                {t('loginDataDismatch')}
+                            </Alert>
+                        )}
+                        <Typography
+                            variant="button"
+                            component="p"
+                            textAlign="center"
+                        >
+                            {t('currentCustomers')}
+                        </Typography>
+                        <LoginForm
+                            loginDetails={loginDetails}
+                            setLoginDetails={setLoginDetails}
+                            handleSubmit={handleSubmit}
+                        />
+                        <AlternativelyRegister />
+                    </Box>
+                )}
+            </>
         </Box>
     );
 };
