@@ -7,74 +7,71 @@ import Checkbox from '@mui/material/Checkbox';
 import { useTranslation } from 'react-i18next';
 import '../common/translation';
 
-const LoginForm = ({ loginDetails, setLoginDetails, handleSubmit }) => {
-    const { t } = useTranslation();
+function LoginForm({ loginDetails, setLoginDetails, handleSubmit }) {
+  const { t } = useTranslation();
 
-    const handleEmailChange = (e) =>
-        setLoginDetails((prevLoginDetails) => ({
-            ...prevLoginDetails,
-            email: e.target.value,
-        }));
+  const handleEmailChange = (e) => setLoginDetails((prevLoginDetails) => ({
+    ...prevLoginDetails,
+    email: e.target.value,
+  }));
 
-    const handlePasswordChange = (e) =>
-        setLoginDetails((prevLoginDetails) => ({
-            ...prevLoginDetails,
-            password: e.target.value,
-        }));
+  const handlePasswordChange = (e) => setLoginDetails((prevLoginDetails) => ({
+    ...prevLoginDetails,
+    password: e.target.value,
+  }));
 
-    const handleIsAdminChange = () =>
-        setLoginDetails((prevLoginDetails) => ({
-            ...prevLoginDetails,
-            isAdmin: !prevLoginDetails.isAdmin,
-        }));
+  const handleIsAdminChange = () => setLoginDetails((prevLoginDetails) => ({
+    ...prevLoginDetails,
+    isAdmin: !prevLoginDetails.isAdmin,
+  }));
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label={t('email')}
-                name="email"
-                autoComplete="email"
-                type="email"
-                onChange={handleEmailChange}
-                value={loginDetails.email}
+  return (
+    <form onSubmit={handleSubmit}>
+      <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        id="email"
+        label={t('email')}
+        name="email"
+        autoComplete="email"
+        type="email"
+        onChange={handleEmailChange}
+        value={loginDetails.email}
+      />
+      <TextField
+        id="outlined-password-input"
+        label={t('password')}
+        type="password"
+        fullWidth
+        required
+        autoComplete="current-password"
+        onChange={handlePasswordChange}
+        value={loginDetails.password}
+      />
+      <Box display="flex" justifyContent="center">
+        <FormControlLabel
+          label={t('signInAsAdmin')}
+          control={(
+            <Checkbox
+              name="admin"
+              checked={loginDetails.isAdmin}
+              onChange={handleIsAdminChange}
             />
-            <TextField
-                id="outlined-password-input"
-                label={t('password')}
-                type="password"
-                fullWidth
-                required
-                autoComplete="current-password"
-                onChange={handlePasswordChange}
-                value={loginDetails.password}
-            />
-            <Box display="flex" justifyContent="center">
-                <FormControlLabel
-                    label={t('signInAsAdmin')}
-                    control={
-                        <Checkbox
-                            name="admin"
-                            checked={loginDetails.isAdmin}
-                            onChange={handleIsAdminChange}
-                        />
-                    }
-                />
-            </Box>
-            <Button
-                variant="contained"
-                type="submit"
-                fullWidth
-                sx={{ marginBottom: '30px' }}
-            >
-                {t('login')}
-            </Button>
-        </form>
-    );
-};
+                      )}
+        />
+      </Box>
+      <Button
+        variant="contained"
+        type="submit"
+        fullWidth
+        sx={{ marginBottom: '30px' }}
+      >
+        {t('login')}
+      </Button>
+    </form>
+  );
+}
 
 export default LoginForm;

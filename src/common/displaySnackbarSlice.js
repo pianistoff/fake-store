@@ -1,16 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const displaySnackbarSlice = createSlice({
-    name: 'displaySnackbar',
-    initialState: false,
-    reducers: {
-        showSnackbar: () => {
-            return true;
-        },
-        hideSnackbar: () => {
-            return false;
-        }
-    },
+  name: 'displaySnackbar',
+  initialState: false,
+  reducers: {
+    showSnackbar: () => true,
+    hideSnackbar: () => false,
+  },
 });
 
 export const { showSnackbar, hideSnackbar } = displaySnackbarSlice.actions;

@@ -10,48 +10,48 @@ import { useTranslation } from 'react-i18next';
 import '../common/translation';
 import FooterTag from './FooterTag';
 
-const Footer = () => {
-    const { t } = useTranslation();
+function Footer() {
+  const { t } = useTranslation();
 
-    return (
-        <Suspense fallback="Loading...">
-            <FooterTag>
-                <Typography variant="body1" component="p">
-                    {t('copyright')}
-                </Typography>
-                <div className="footer-right">
-                    <IconButton
-                        size="large"
-                        aria-label="account"
-                        color="inherit"
-                    >
-                        <FacebookIcon />
-                    </IconButton>
-                    <IconButton
-                        size="large"
-                        aria-label="account"
-                        color="inherit"
-                    >
-                        <InstagramIcon />
-                    </IconButton>
-                    <IconButton
-                        size="large"
-                        aria-label="account"
-                        color="inherit"
-                    >
-                        <TwitterIcon />
-                    </IconButton>
-                    <IconButton
-                        size="large"
-                        aria-label="account"
-                        color="inherit"
-                    >
-                        <PinterestIcon />
-                    </IconButton>
-                </div>
-            </FooterTag>
-        </Suspense>
-    );
-};
+  return (
+    <Suspense fallback="Loading...">
+      <FooterTag>
+        <Typography variant="body1" component="p">
+          {t('copyright')}
+        </Typography>
+        <div className="footer-right">
+          <IconButton
+            size="large"
+            aria-label="account"
+            color="inherit"
+          >
+            <FacebookIcon />
+          </IconButton>
+          <IconButton
+            size="large"
+            aria-label="account"
+            color="inherit"
+          >
+            <InstagramIcon />
+          </IconButton>
+          <IconButton
+            size="large"
+            aria-label="account"
+            color="inherit"
+          >
+            <TwitterIcon />
+          </IconButton>
+          <IconButton
+            size="large"
+            aria-label="account"
+            color="inherit"
+          >
+            <PinterestIcon />
+          </IconButton>
+        </div>
+      </FooterTag>
+    </Suspense>
+  );
+}
 
 export default Footer;
