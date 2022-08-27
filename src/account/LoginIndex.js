@@ -10,6 +10,7 @@ import Alert from '@mui/material/Alert';
 import { useTranslation } from 'react-i18next';
 import Typography from '@mui/material/Typography';
 import useLoginValidation from './useLoginValidation';
+import useHandleSuccessfulLogin from './useHandleSuccessfulLogin';
 
 const LoginIndex = () => {
     const [loginDetails, setLoginDetails] = React.useState({
@@ -19,12 +20,19 @@ const LoginIndex = () => {
     });
     const usersStatus = useSelector(selectUsersStatus);
     const dispatch = useDispatch();
-    const [dataDismatch, validate] = useLoginValidation(loginDetails);
+    const [loginStatus, validate] = useLoginValidation(loginDetails);
+    const handleSuccessfulLogin = useHandleSuccessfulLogin(loginDetails);
     const { t } = useTranslation();
 
     React.useEffect(() => {
         dispatch(fetchUsers());
     }, []);
+
+    React.useEffect(() => {
+        if(loginStatus === 'logged in') {
+            handleSuccessfulLogin();
+        }
+    }, [loginStatus])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -52,7 +60,7 @@ const LoginIndex = () => {
                         width: { xs: '100%', sm: '50%', md: '40%', lg: '30%' },
                     }}
                 >
-                    {dataDismatch && (
+                    {loginStatus === 'data dismatch' && (
                         <Alert
                             severity="error"
                             style={{ marginBottom: '20px' }}
