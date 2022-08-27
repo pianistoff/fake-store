@@ -179,7 +179,7 @@ const Register = () => {
                         label={t('username')}
                         name="username"
                         autoComplete="username"
-                        type="username"
+                        type="text"
                         onChange={handleUsername}
                         value={inputs.username}
                     />
@@ -192,7 +192,7 @@ const Register = () => {
                         label={t('firstName')}
                         name="firstName"
                         autoComplete="firstName"
-                        type="firstName"
+                        type="text"
                         onChange={handleFirstName}
                         value={inputs.name.firstname}
                     />
@@ -205,7 +205,7 @@ const Register = () => {
                         label={t('lastName')}
                         name="lastName"
                         autoComplete="lastName"
-                        type="lastName"
+                        type="text"
                         onChange={handleLastName}
                         value={inputs.name.lastname}
                     />
@@ -229,7 +229,7 @@ const Register = () => {
                         label={t('city')}
                         name="city"
                         autoComplete="city"
-                        type="city"
+                        type="text"
                         onChange={handleCity}
                         value={inputs.address.city}
                     />
@@ -242,7 +242,7 @@ const Register = () => {
                         label={t('street')}
                         name="street"
                         autoComplete="street"
-                        type="street"
+                        type="text"
                         onChange={handleStreet}
                         value={inputs.address.street}
                     />
@@ -255,7 +255,7 @@ const Register = () => {
                         label={t('buildingNumber')}
                         name="buildingNumber"
                         autoComplete="buildingNumber"
-                        type="buildingNumber"
+                        type="text"
                         onChange={handleBuildingNumber}
                         value={inputs.address.number}
                     />
@@ -268,7 +268,7 @@ const Register = () => {
                         label={t('zipCode')}
                         name="zipCode"
                         autoComplete="zipCode"
-                        type="zipCode"
+                        type="text"
                         onChange={handleZipCode}
                         value={inputs.address.zipcode}
                     />
@@ -281,7 +281,7 @@ const Register = () => {
                         label={t('phone')}
                         name="phone"
                         autoComplete="phone"
-                        type="phone"
+                        type="tel"
                         onChange={handlePhone}
                         value={inputs.phone}
                     />
