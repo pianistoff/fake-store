@@ -191,7 +191,7 @@ const Register = () => {
                         id="firstName"
                         label={t('firstName')}
                         name="firstName"
-                        autoComplete="firstName"
+                        autoComplete="given-name"
                         type="text"
                         onChange={handleFirstName}
                         value={inputs.name.firstname}
@@ -204,7 +204,7 @@ const Register = () => {
                         id="lastName"
                         label={t('lastName')}
                         name="lastName"
-                        autoComplete="lastName"
+                        autoComplete="family-name"
                         type="text"
                         onChange={handleLastName}
                         value={inputs.name.lastname}
@@ -216,7 +216,7 @@ const Register = () => {
                         type="password"
                         fullWidth
                         required
-                        autoComplete="current-password"
+                        autoComplete="new-password"
                         onChange={handlePassword}
                         value={inputs.password}
                     />
@@ -228,7 +228,7 @@ const Register = () => {
                         id="city"
                         label={t('city')}
                         name="city"
-                        autoComplete="city"
+                        autoComplete="address-level12"
                         type="text"
                         onChange={handleCity}
                         value={inputs.address.city}
@@ -267,7 +267,7 @@ const Register = () => {
                         id="zipCode"
                         label={t('zipCode')}
                         name="zipCode"
-                        autoComplete="zipCode"
+                        autoComplete="postal-code"
                         type="text"
                         onChange={handleZipCode}
                         value={inputs.address.zipcode}
@@ -280,7 +280,7 @@ const Register = () => {
                         id="phone"
                         label={t('phone')}
                         name="phone"
-                        autoComplete="phone"
+                        autoComplete="tel"
                         type="tel"
                         onChange={handlePhone}
                         value={inputs.phone}
