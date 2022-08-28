@@ -1,11 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import '../common/translation';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AlternativelyLogin from './AlternativelyLogin';
+import useAddNewUser from './useAddNewUser';
 
 const Register = () => {
     const { t } = useTranslation();
@@ -30,6 +32,8 @@ const Register = () => {
         },
         phone: '',
     });
+    const navigate = useNavigate();
+    const addNewUser = useAddNewUser(inputs);
 
     React.useEffect(() => {
         if (navigator.geolocation) {
@@ -136,7 +140,15 @@ const Register = () => {
         }));
     };
 
-    const handleSubmit = (e) => {};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addNewUser();
+        localStorage.setItem(
+            'loginDetails',
+            JSON.stringify({ email: inputs.email, password: inputs.password })
+        );
+        navigate(-1);
+    };
 
     return (
         <Box
