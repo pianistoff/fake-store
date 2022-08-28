@@ -162,9 +162,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
                         label={t('email')}
-                        name="email"
                         autoComplete="email"
                         type="email"
                         onChange={handleEmail}
@@ -175,9 +173,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="username"
                         label={t('username')}
-                        name="username"
                         autoComplete="username"
                         type="text"
                         onChange={handleUsername}
@@ -188,9 +184,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="firstName"
                         label={t('firstName')}
-                        name="firstName"
                         autoComplete="given-name"
                         type="text"
                         onChange={handleFirstName}
@@ -201,16 +195,13 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="lastName"
                         label={t('lastName')}
-                        name="lastName"
                         autoComplete="family-name"
                         type="text"
                         onChange={handleLastName}
                         value={inputs.name.lastname}
                     />
                     <TextField
-                        id="outlined-password-input"
                         label={t('password')}
                         margin="normal"
                         type="password"
@@ -225,9 +216,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="city"
                         label={t('city')}
-                        name="city"
                         autoComplete="address-level12"
                         type="text"
                         onChange={handleCity}
@@ -238,9 +227,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="street"
                         label={t('street')}
-                        name="street"
                         type="text"
                         onChange={handleStreet}
                         value={inputs.address.street}
@@ -250,9 +237,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="buildingNumber"
                         label={t('buildingNumber')}
-                        name="buildingNumber"
                         type="text"
                         onChange={handleBuildingNumber}
                         value={inputs.address.number}
@@ -262,9 +247,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="zipCode"
                         label={t('zipCode')}
-                        name="zipCode"
                         autoComplete="postal-code"
                         type="text"
                         onChange={handleZipCode}
@@ -275,9 +258,7 @@ const Register = () => {
                         margin="normal"
                         required
                         fullWidth
-                        id="phone"
                         label={t('phone')}
-                        name="phone"
                         autoComplete="tel"
                         type="tel"
                         onChange={handlePhone}
