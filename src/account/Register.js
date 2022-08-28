@@ -241,7 +241,6 @@ const Register = () => {
                         id="street"
                         label={t('street')}
                         name="street"
-                        autoComplete="street"
                         type="text"
                         onChange={handleStreet}
                         value={inputs.address.street}
@@ -254,7 +253,6 @@ const Register = () => {
                         id="buildingNumber"
                         label={t('buildingNumber')}
                         name="buildingNumber"
-                        autoComplete="buildingNumber"
                         type="text"
                         onChange={handleBuildingNumber}
                         value={inputs.address.number}
