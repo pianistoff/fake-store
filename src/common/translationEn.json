@@ -3,6 +3,7 @@
     "login": "Log in",
     "newCustomers": "New Customers",
     "existingCustomers": "Existing Customers",
+    "currentCustomers": "Current Customers",
     "register": "Register",
     "email": "Email",
     "username": "Username",
@@ -15,5 +16,11 @@
     "buildingNumber": "Building number",
     "zipCode": "ZIP code",
     "signInAsAdmin": "Sign in as an administrator?",
-    "networkError": "Problems connecting to the database!"
-  }
+    "networkError": "Problems connecting to the database!",
+    "electronics": "electronics",
+    "jewelery": "jewelery",
+    "men's clothing": "men's clothing",
+    "women's clothing": "women's clothing",
+    "loginDataDismatch": "Your email address or password is incorrect. Please try again.",
+    "successfulLogin": "You successfully logged in!"
+}

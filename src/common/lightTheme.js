@@ -1,15 +1,15 @@
 import { createTheme } from '@mui/material/styles';
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#802c6e',
-        },
-        secondary: {
-            main: '#6e802c',
-        },
-        mode: 'light'
+const lighTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#802c6e',
     },
+    secondary: {
+      main: '#6e802c',
+    },
+    mode: 'light',
+  },
 });
 
-export default theme;
+export default lighTheme;
