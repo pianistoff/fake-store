@@ -1,0 +1,17 @@
+{
+    "copyright": "© 2022 Fake Store. Всі права захищено",
+    "login": "Увійти",
+    "newCustomers": "Нові покупці",
+    "currentCustomers": "Наявні покупці",
+    "register": "Зареєструватися",
+    "email": "Електронна пошта",
+    "password": "Пароль",
+    "signInAsAdmin": "Увійти як адміністратор?",
+    "networkError": "Проблеми із зв'язком з базою даних!",
+    "electronics": "eлектроніка",
+    "jewelery": "ювелірні вироби",
+    "men's clothing": "чоловічий одяг",
+    "women's clothing": "жіночий одяг",
+    "loginDataDismatch": "Ваша електронна пошта або пароль неправильні. Будь ласка, спробуйте ще раз.",
+    "successfulLogin": "Ви успішно авторизувалися!"
+}

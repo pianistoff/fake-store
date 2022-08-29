@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Header from './header/Header';
+import Footer from './footer/FooterIndex';
+import RoutesList from './common/RoutesList';
+import LoginSuccessfullSnackbar from './account/LoginSuccessfullSnackbar';
+import CustomThemeProvider from './common/CustomThemeProvider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <BrowserRouter>
+      <CustomThemeProvider>
+        <CssBaseline />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: '100vh',
+            justifyContent: 'space-between',
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Header />
+          <div style={{ padding: '10px' }}>
+            <RoutesList />
+          </div>
+          <LoginSuccessfullSnackbar />
+          <Footer />
+        </Box>
+      </CustomThemeProvider>
+    </BrowserRouter>
   );
 }
 
