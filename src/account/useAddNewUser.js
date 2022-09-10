@@ -7,13 +7,13 @@ const useAddNewUser = (inputs) => {
             );
         } else {
             const currentUsers = JSON.parse(localStorage.getItem('users'));
-            let largestId = currentUsers[0].id;
+            let latestId = currentUsers[0].id;
             for (let i = 0; i < currentUsers.length; i++) {
-                if (largestId < currentUsers[i].id ) {
-                    largestId = currentUsers[i].id;
+                if (latestId < currentUsers[i].id ) {
+                    latestId = currentUsers[i].id;
                 }
             }
-            const newUserId = largestId + 1;
+            const newUserId = latestId + 1;
             localStorage.setItem('users', JSON.stringify([...currentUsers, {...inputs, id: newUserId}]));
         }
     };
