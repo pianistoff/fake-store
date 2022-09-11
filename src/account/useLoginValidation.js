@@ -15,11 +15,11 @@ const useLoginValidation = (loginDetails) => {
             return;
         }
         if (currentUser.password === loginDetails.password) {
-            setLoginStatus('logged in')
+            setLoginStatus('logged in');
         } else {
             setLoginStatus('data dismatch');
         }
-    }
+    };
 
     return [loginStatus, validate];
 };

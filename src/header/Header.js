@@ -6,9 +6,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import CategoriesNavigation from './CategoriesNavigation';
-import { selectThemeMode } from '../common/userSettingsSlice';
 import LanguageDropdown from './LanguageDropdown';
 import ThemeButton from './ThemeButton';
 
