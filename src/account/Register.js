@@ -35,22 +35,20 @@ const Register = () => {
     const navigate = useNavigate();
     const addNewUser = useAddNewUser(inputs);
 
-    React.useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((location) => {
-                setInputs((prevInputs) => ({
-                    ...prevInputs,
-                    address: {
-                        ...prevInputs.address,
-                        geolocation: {
-                            lat: JSON.stringify(location.coords.latitude),
-                            long: JSON.stringify(location.coords.longitude),
-                        },
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((location) => {
+            setInputs((prevInputs) => ({
+                ...prevInputs,
+                address: {
+                    ...prevInputs.address,
+                    geolocation: {
+                        lat: JSON.stringify(location.coords.latitude),
+                        long: JSON.stringify(location.coords.longitude),
                     },
-                }));
-            });
-        }
-    }, []);
+                },
+            }));
+        });
+    };
 
     const handleEmail = (e) => {
         setInputs((prevInputs) => ({
