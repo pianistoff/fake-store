@@ -1,6 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectAllProductsStatus, selectAllProductsData } from './../common/allProductsSlice';
+import React from "react";
+import { useSelector } from "react-redux";
+import {
+  selectAllProductsStatus,
+  selectAllProductsData,
+} from "../common/allProductsSlice";
 
 function Products() {
   const allProductsStatus = useSelector(selectAllProductsStatus);
