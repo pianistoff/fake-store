@@ -1,7 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "./storeConfiguration";
 
 export const displaySnackbarSlice = createSlice({
-  name: 'displaySnackbar',
+  name: "displaySnackbar",
   initialState: false,
   reducers: {
     showSnackbar: () => true,
@@ -13,4 +14,5 @@ export const { showSnackbar, hideSnackbar } = displaySnackbarSlice.actions;
 
 export default displaySnackbarSlice.reducer;
 
-export const selectDisplaySnackbar = (state) => state.displaySnackbar;
+export const selectDisplaySnackbar = (state: RootState) =>
+  state.displaySnackbar;
