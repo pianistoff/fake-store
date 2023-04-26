@@ -1,9 +1,14 @@
-import React from 'react';
-import i18n from 'i18next';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import { useSelector, useDispatch } from 'react-redux';
-import { switchToEn, switchToUk, selectLanguage } from '../common/userSettingsSlice';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import i18n from "i18next";
+
+import {
+  selectLanguage,
+  switchToEn,
+  switchToUk,
+} from "../common/userSettingsSlice";
 
 function LanguageDropdown() {
   const language = useSelector(selectLanguage);
@@ -14,7 +19,7 @@ function LanguageDropdown() {
   }, [language]);
 
   return (
-    <Select defaultValue="uk" variant="outlined" sx={{ color: 'white' }}>
+    <Select defaultValue="uk" variant="outlined" sx={{ color: "white" }}>
       <MenuItem value="uk" onClick={() => dispatch(switchToUk())}>
         UK
       </MenuItem>

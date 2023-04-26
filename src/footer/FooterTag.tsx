@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/system";
+
 import { selectThemeMode } from "../common/userSettingsSlice";
-import { ReactNode } from "react";
 
 type FooterTagProps = {
   children: ReactNode;

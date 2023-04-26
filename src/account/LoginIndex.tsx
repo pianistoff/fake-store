@@ -1,18 +1,19 @@
 import React from "react";
-import { fetchUsers } from "../common/usersSlice";
-import LoginForm from "./LoginForm";
-import Box from "@mui/material/Box";
-import AlternativelyRegister from "./AlternativelyRegister";
-import { selectUsersStatus } from "../common/usersSlice";
-import CircularProgress from "@mui/material/CircularProgress";
-import Alert from "@mui/material/Alert";
 import { useTranslation } from "react-i18next";
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import useLoginValidation from "./useLoginValidation";
-import useHandleSuccessfulLogin from "./useHandleSuccessfulLogin";
-import { useAppDispatch, useAppSelector } from "../common/storeHooks";
 
-const LoginIndex = () => {
+import { useAppDispatch, useAppSelector } from "../common/storeHooks";
+import { fetchUsers, selectUsersStatus } from "../common/usersSlice";
+
+import AlternativelyRegister from "./AlternativelyRegister";
+import LoginForm from "./LoginForm";
+import useHandleSuccessfulLogin from "./useHandleSuccessfulLogin";
+import useLoginValidation from "./useLoginValidation";
+
+function LoginIndex() {
   const [loginDetails, setLoginDetails] = React.useState({
     email: "",
     password: "",
@@ -26,13 +27,13 @@ const LoginIndex = () => {
 
   React.useEffect(() => {
     dispatch(fetchUsers());
-  }, []);
+  }, [dispatch]);
 
   React.useEffect(() => {
     if (loginStatus === "logged in") {
       handleSuccessfulLogin();
     }
-  }, [loginStatus]);
+  }, [loginStatus, handleSuccessfulLogin]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,6 +77,6 @@ const LoginIndex = () => {
       )}
     </Box>
   );
-};
+}
 
 export default LoginIndex;

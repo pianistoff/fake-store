@@ -1,8 +1,8 @@
 import React from "react";
-import { selectUsersData } from "../common/usersSlice";
+
 import { useAppSelector } from "../common/storeHooks";
-import { LoginDetails } from "../common/types";
-import { User } from "../common/types";
+import { LoginDetails, User } from "../common/types";
+import { selectUsersData } from "../common/usersSlice";
 
 const useLoginValidation = (loginDetails: LoginDetails) => {
   const [loginStatus, setLoginStatus] = React.useState("");
@@ -10,7 +10,7 @@ const useLoginValidation = (loginDetails: LoginDetails) => {
 
   const validate = () => {
     const currentUser = usersData.find(
-      (user: User) => user.email === loginDetails.email
+      (user: User) => user.email === loginDetails.email,
     );
     if (currentUser === undefined) {
       setLoginStatus("data dismatch");

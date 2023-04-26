@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { RootState } from "./storeConfiguration";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+import type { RootState } from "./storeConfiguration";
 import type { User } from "./types";
 
 type UsersState = {
@@ -10,7 +11,7 @@ type UsersState = {
 const initialState: UsersState = { status: null, data: [] };
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () =>
-  fetch("https://fakestoreapi.com/users").then((res) => res.json())
+  fetch("https://fakestoreapi.com/users").then((res) => res.json()),
 );
 
 export const usersSlice = createSlice({
@@ -18,20 +19,28 @@ export const usersSlice = createSlice({
   initialState,
   reducers: {
     setUsersLoading: (state) => {
-      state.status = "loading";
+      return {
+        ...state,
+        status: "loading",
+      };
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUsers.pending, (state) => {
-        state.status = "loading";
+        return {
+          ...state,
+          status: "loading",
+        };
       })
-      .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.status = "success";
+      .addCase(fetchUsers.fulfilled, (_, action) => {
+        return { data: action.payload, status: "success" };
       })
       .addCase(fetchUsers.rejected, (state) => {
-        state.status = "failed";
+        return {
+          ...state,
+          status: "failed",
+        };
       });
   },
 });

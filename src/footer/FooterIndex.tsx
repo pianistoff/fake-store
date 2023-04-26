@@ -1,14 +1,17 @@
 import { Suspense } from "react";
-import Typography from "@mui/material/Typography";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import IconButton from "@mui/material/IconButton";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import PinterestIcon from "@mui/icons-material/Pinterest";
-import "./footer.css";
 import { useTranslation } from "react-i18next";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+
 import "../common/translation";
+
 import FooterTag from "./FooterTag";
+
+import "./footer.css";
 
 function Footer() {
   const { t } = useTranslation();

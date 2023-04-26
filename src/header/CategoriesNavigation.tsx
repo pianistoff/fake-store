@@ -1,6 +1,7 @@
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import { useTranslation } from "react-i18next";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+
 import "./navbar.css";
 
 function CategoriesNavigation() {

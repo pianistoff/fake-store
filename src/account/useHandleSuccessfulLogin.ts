@@ -1,5 +1,6 @@
-import { showSnackbar, hideSnackbar } from "../common/displaySnackbarSlice";
 import { useNavigate } from "react-router-dom";
+
+import { hideSnackbar, showSnackbar } from "../common/displaySnackbarSlice";
 import { useAppDispatch } from "../common/storeHooks";
 import { LoginDetails } from "../common/types";
 

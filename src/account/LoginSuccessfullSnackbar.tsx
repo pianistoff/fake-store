@@ -1,8 +1,9 @@
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
-import { useAppSelector } from "../common/storeHooks";
 import { useTranslation } from "react-i18next";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
+
 import { selectDisplaySnackbar } from "../common/displaySnackbarSlice";
+import { useAppSelector } from "../common/storeHooks";
 
 function LoginSuccessfullSnackbar() {
   const displaySnackbar = useAppSelector(selectDisplaySnackbar);

@@ -1,11 +1,12 @@
-import { Routes, Route } from "react-router-dom";
-import Products from "../products/Products";
-import Product from "../product/Product";
-import Cart from "../cart/Cart";
-import Users from "../users/Users";
+import { Route, Routes } from "react-router-dom";
+
 import Login from "../account/LoginIndex";
 import Register from "../account/Register";
+import Cart from "../cart/Cart";
 import NotFound from "../not-found/NotFound";
+import Product from "../product/Product";
+import Products from "../products/Products";
+import Users from "../users/Users";
 
 function RoutesList() {
   return (

@@ -1,15 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import "../common/translation";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+
+import "../common/translation";
+
 import AlternativelyLogin from "./AlternativelyLogin";
 import useAddNewUser from "./useAddNewUser";
 
-const Register = () => {
+function Register() {
   const { t } = useTranslation();
   const [inputs, setInputs] = React.useState({
     address: {
@@ -117,7 +119,7 @@ const Register = () => {
       ...prevInputs,
       address: {
         ...prevInputs.address,
-        number: parseInt(e.target.value),
+        number: parseInt(e.target.value, 10),
       },
     }));
   };
@@ -144,7 +146,7 @@ const Register = () => {
     addNewUser();
     localStorage.setItem(
       "loginDetails",
-      JSON.stringify({ email: inputs.email, password: inputs.password })
+      JSON.stringify({ email: inputs.email, password: inputs.password }),
     );
     navigate(-1);
   };
@@ -282,6 +284,6 @@ const Register = () => {
       </Box>
     </Box>
   );
-};
+}
 
 export default Register;

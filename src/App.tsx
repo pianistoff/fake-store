@@ -1,11 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Header from "./header/Header";
-import Footer from "./footer/FooterIndex";
-import RoutesList from "./common/RoutesList";
+import CssBaseline from "@mui/material/CssBaseline";
+
 import LoginSuccessfullSnackbar from "./account/LoginSuccessfullSnackbar";
 import CustomThemeProvider from "./common/CustomThemeProvider";
+import RoutesList from "./common/RoutesList";
+import Footer from "./footer/FooterIndex";
+import Header from "./header/Header";
 
 function App() {
   return (

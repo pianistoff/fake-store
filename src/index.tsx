@@ -1,8 +1,10 @@
 import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
 import { Provider } from "react-redux";
+
 import store from "./common/storeConfiguration";
+import App from "./App";
+
+import "./index.css";
 
 const rootElement = document.getElementById("root");
 
@@ -11,8 +13,8 @@ if (rootElement !== null) {
   root.render(
     <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>,
   );
 } else {
-  console.error("Couldn't find root element");
+  throw new Error("Couldn't find root element");
 }

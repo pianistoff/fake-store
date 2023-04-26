@@ -7,7 +7,7 @@ const useAddNewUser = (inputs: User) => {
     } else {
       const currentUsers = JSON.parse(localStorage.getItem("users") ?? "[]");
       let latestId = currentUsers[0].id;
-      for (let i = 0; i < currentUsers.length; i++) {
+      for (let i = 0; i < currentUsers.length; i += 1) {
         if (latestId < currentUsers[i].id) {
           latestId = currentUsers[i].id;
         }
@@ -15,7 +15,7 @@ const useAddNewUser = (inputs: User) => {
       const newUserId = latestId + 1;
       localStorage.setItem(
         "users",
-        JSON.stringify([...currentUsers, { ...inputs, id: newUserId }])
+        JSON.stringify([...currentUsers, { ...inputs, id: newUserId }]),
       );
     }
   };

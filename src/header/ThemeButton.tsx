@@ -1,8 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
-
-import IconButton from "@mui/material/IconButton";
+import { useDispatch, useSelector } from "react-redux";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
+import IconButton from "@mui/material/IconButton";
+
 import {
   selectThemeMode,
   switchToDark,

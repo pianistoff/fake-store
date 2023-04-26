@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "./storeConfiguration";
+
+import type { RootState } from "./storeConfiguration";
 
 export const displaySnackbarSlice = createSlice({
   name: "displaySnackbar",

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "../common/storeConfiguration";
+
+import type { RootState } from "./storeConfiguration";
 
 type UserSettingsState = {
   themeMode: "light" | "dark";
@@ -13,16 +14,16 @@ export const userSettingsSlice = createSlice({
   initialState,
   reducers: {
     switchToEn: (state) => {
-      state.language = "en";
+      return { ...state, language: "en" };
     },
     switchToUk: (state) => {
-      state.language = "uk";
+      return { ...state, language: "uk" };
     },
     switchToDark: (state) => {
-      state.themeMode = "dark";
+      return { ...state, themeMode: "dark" };
     },
     switchToLight: (state) => {
-      state.themeMode = "light";
+      return { ...state, themeMode: "light" };
     },
   },
 });

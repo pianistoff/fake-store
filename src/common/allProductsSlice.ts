@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import type { RootState } from "./storeConfiguration";
 
 export interface Product {
@@ -24,7 +25,7 @@ const initialState: AllProductsState = { status: null, data: [] };
 export const fetchAllProducts = createAsyncThunk(
   "allProducts/fetchAllProducts",
   async () =>
-    fetch("https://fakestoreapi.com/products").then((res) => res.json())
+    fetch("https://fakestoreapi.com/products").then((res) => res.json()),
 );
 
 export const allProductsSlice = createSlice({
@@ -32,20 +33,28 @@ export const allProductsSlice = createSlice({
   initialState,
   reducers: {
     setAllProductsLoading: (state) => {
-      state.status = "loading";
+      return {
+        ...state,
+        status: "loading",
+      };
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllProducts.pending, (state) => {
-        state.status = "loading";
+        return {
+          ...state,
+          status: "loading",
+        };
       })
-      .addCase(fetchAllProducts.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.status = "success";
+      .addCase(fetchAllProducts.fulfilled, (_, action) => {
+        return { data: action.payload, status: "success" };
       })
       .addCase(fetchAllProducts.rejected, (state) => {
-        state.status = "failed";
+        return {
+          ...state,
+          status: "failed",
+        };
       });
   },
 });

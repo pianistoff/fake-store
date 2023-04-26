@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
-import { ThemeProvider } from "@mui/material/styles";
 import { useSelector } from "react-redux";
+import { ThemeProvider } from "@mui/material/styles";
+
 import darkTheme from "./darkTheme";
 import lightTheme from "./lightTheme";
 import { selectThemeMode } from "./userSettingsSlice";
